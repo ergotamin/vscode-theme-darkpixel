@@ -1,0 +1,16 @@
+{
+  "newTokenColor": {
+    "prefix": "newTokenColor",
+    "body": [
+      "\t{",
+      "\t\t\"name\": \"$0\",",
+      "\t\t\"scope\": [\"${3:scope.name}\"],",
+      "\t\t\"settings\": {",
+      "\t\t\t\"foreground\": \"${2:hex.color}\",",
+      "\t\t\t\"fontStyle\": \"${1|bold,italic,underline|}\",",
+      "\t\t}",
+      "\t}"
+    ],
+    "description": "tokenColor for syntax-highlighting"
+  }
+}
