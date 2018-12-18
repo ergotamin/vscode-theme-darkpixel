@@ -48,7 +48,7 @@
                 },
                 {
                     "include": "#parens"
-                }
+                } 
             ]
         },
         "special_block": {
@@ -985,7 +985,7 @@
                             "include": "#comment-innards"
 												},
 												{
-																		"match": "\\s*([@][a-z0-9]++)\\s*",
+																		"match": "\\s*([@][^A-Z\\s]++)\\s*",
 																		"captures": {
 																		"1": {
 																				"name": "comment.block.jdoc.c"
@@ -1001,7 +1001,7 @@
 																		}
 												},
 												{
-																		"match": "\\s*([<](http|mailto)\\S*[>])(\\s*)",
+																		"match": "\\s*([<](http[s]?|mailto)\\S*[>])(\\s*)",
 																		"captures": {
 																		"1": {
 																				"name": "comment.block.link.c"
@@ -1009,7 +1009,7 @@
 																		}
 												},
 												{
-																		"match": "\\s*([*]\\S*[*])(\\s*)",
+																		"match": "\\s*(\\s[*]\\S*[*])(\\s*)",
 																		"captures": {
 																		"1": {
 																				"name": "comment.block.bold.c"
@@ -1017,7 +1017,7 @@
 																		}
 												},
 												{
-																		"match": "\\s*([_]\\S*[_])(\\s*)",
+																		"match": "\\s*(\\s[_]\\S*[_])(\\s*)",
 																		"captures": {
 																		"1": {
 																				"name": "comment.block.underline.c"
@@ -1025,13 +1025,21 @@
 																		}
 												},
 												{
-																		"match": "\\s*(_____*)\\s*",
+																		"match": "\\s*(##[#]*)\\s*",
 																		"captures": {
 																		"1": {
 																				"name": "comment.block.seperator.c"
 																				}
 																		}
-												}
+                                                },
+                                                {
+                                                    "match": "\\s*([!]\\S*)\\s*",
+                                                    "captures": {
+                                                    "1": {
+                                                            "name": "comment.block.token.c"
+                                                            }
+                                                }
+                            }
                     ]
                 },
                 {

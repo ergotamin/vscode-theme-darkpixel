@@ -22,8 +22,8 @@
   ],
   "categories": [
     "Themes",
-		"Programming Languages",
-		"Snippets"
+    "Programming Languages",
+    "Snippets"
   ],
   "contributes": {
     "keybindings": [
@@ -120,21 +120,29 @@
         "mimetypes": [
           "text/x-shellscript"
         ]
-			},
-			{
-			"id": "awk", 
-			"aliases": ["awk", "gawk"],
-			"extensions": [".awk",".gawk",".AWK",".GAWK"],
-			"firstLine": "^#\\s*!.*\\b(awk|gawk).*|^#\\s*-\\*-[^*]*mode:\\s*awk-script[^*]*-\\*-",
-			"configuration": "./lang/awk-language-configuration.json"
-		}
+      },
+      {
+        "id": "awk",
+        "aliases": [
+          "awk",
+          "gawk"
+        ],
+        "extensions": [
+          ".awk",
+          ".gawk",
+          ".AWK",
+          ".GAWK"
+        ],
+        "firstLine": "^#\\s*!.*\\b(awk|gawk).*|^#\\s*-\\*-[^*]*mode:\\s*awk-script[^*]*-\\*-",
+        "configuration": "./lang/awk-language-configuration.json"
+      }
     ],
     "grammars": [
-			{
-				"language": "awk",
-				"scopeName": "source.awk",
-				"path": "./syntaxes/awk.json"
-			},
+      {
+        "language": "awk",
+        "scopeName": "source.awk",
+        "path": "./syntaxes/awk.json"
+      },
       {
         "language": "c",
         "scopeName": "source.c",
@@ -166,22 +174,22 @@
         "uiTheme": "vs-dark",
         "path": "./themes/DarkPixel.json"
       }
-		],
-		"snippets": [
-			{
-				"language": "json",
-				"path": "./snippets/JSON.json"
-			}
-		]
+    ],
+    "snippets": [
+      {
+        "language": "json",
+        "path": "./snippets/JSON.json"
+      }
+    ]
   },
   "repository": {
     "type": "git",
-    "url": "https://git.e-p-s.org/ergotamin/script/js/vscode/darkpixel-theme"
+    "url": "https://github.com/ergotamin/darkpixel-theme"
   },
   "devDependencies": {
     "vscode": "^1.20.0"
   },
-  "license": "GPLv3",
+  "license": "MIT",
   "__metadata": {
     "id": "c233420d-ee46-4ebb-9731-1b9af714eaee",
     "publisherDisplayName": "ergotamin",

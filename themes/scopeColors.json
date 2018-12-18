@@ -43,10 +43,7 @@
       }
     },
     {
-      "scope": [
-        "meta.scope.function-call.makefile",
-        "string.interpolated.dollar.shell"
-      ],
+      "scope": ["meta.scope.function-call.makefile", "string.interpolated.dollar.shell"],
       "settings": {
         "foreground": "#FF7F00cc",
         "fontStyle": "bold"
@@ -73,53 +70,75 @@
         "fontStyle": "bold italic"
       }
     },
+
     {
-      "scope": ["comment.block.jdoc.c"],
+      "scope": ["comment.block.ndocfile.c"],
       "settings": {
         "foreground": "#00CC7777",
-        "fontStyle": "underline italic"
+        "fontStyle": "underline"
       }
     },
     {
-      "scope": ["comment.block.dochead.c"],
+      "scope": ["comment.block.ndocfunc.c"],
       "settings": {
-        "foreground": "#00CC7777",
-        "fontStyle": "bold underline italic"
+        "foreground": "#00AC0077",
+        "fontStyle": "underline"
       }
     },
     {
-      "scope": ["comment.block.link.c"],
+      "scope": ["comment.block.ndocdef.c"],
+      "settings": {
+        "foreground": "#7200FFaa",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "scope": ["comment.block.ndocconst.c"],
+      "settings": {
+        "foreground": "#9200FFaa",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "scope": ["comment.block.ndocparam.c"],
+      "settings": {
+        "foreground": "#3498DB99",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "scope": ["comment.block.ndocreturn.c"],
+      "settings": {
+        "foreground": "#00FFF199",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "scope": ["comment.block.ndoclink.c"],
       "settings": {
         "foreground": "#DD777755",
-        "fontStyle": "underline italic"
-      }
-    },
-    {
-      "scope": ["comment.block.bold.c"],
-      "settings": {
-        "foreground": "#554488cc",
-        "fontStyle": "bold italic"
-      }
-    },
-    {
-      "scope": ["comment.block.underline.c"],
-      "settings": {
-        "foreground": "#554488cc",
-        "fontStyle": "underline italic"
-      }
-    },
-    {
-      "scope": ["comment.block.seperator.c"],
-      "settings": {
-        "foreground": "#4400FFee",
         "fontStyle": "bold"
       }
     },
     {
-      "scope": ["comment.block.token.c"],
+      "scope": ["comment.block.ndocbold.c"],
       "settings": {
-        "foreground": "#990044",
-        "fontStyle": "bold underline"
+        "foreground": "#554488cc",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": ["comment.block.ndocunderline.c"],
+      "settings": {
+        "foreground": "#554488cc",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "scope": ["comment.block.seperatorline.c"],
+      "settings": {
+        "foreground": "#4400FFee",
+        "fontStyle": "bold"
       }
     },
     {
@@ -140,6 +159,20 @@
       "scope": ["constant.return.error.c"],
       "settings": {
         "foreground": "#FF0000",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": ["constant.value.definition.c"],
+      "settings": {
+        "foreground": "#FF3000CC",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": ["constant.size.definition.c"],
+      "settings": {
+        "foreground": "#FFAF00CC",
         "fontStyle": "bold"
       }
     },
@@ -172,13 +205,10 @@
       }
     },
     {
-      "scope": [
-        "string.quoted.other.lt-gt.include.c",
-        "string.quoted.double.include.c"
-      ],
+      "scope": ["string.quoted.other.lt-gt.include.c", "string.quoted.double.include.c"],
       "settings": {
         "foreground": "#BF40FF",
-        "fontStyle": "bold italic"
+        "fontStyle": "underline"
       }
     },
     {
@@ -186,20 +216,6 @@
       "settings": {
         "foreground": "#33FF33BB",
         "fontStyle": "bold"
-      }
-    },
-    {
-      "scope": ["entity.name.type.cpp"],
-      "settings": {
-        "foreground": "#ff00ffee",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "scope": ["entity.name.type.inherited.cpp"],
-      "settings": {
-        "foreground": "#7700fffb",
-        "fontStyle": "bold italic"
       }
     },
     {
@@ -217,10 +233,31 @@
       }
     },
     {
-      "scope": ["meta.scope.group.shell", "meta.block.special.c"],
+      "scope": ["meta.block.c", "meta.scope.group.shell", "meta.block.special.c"],
       "settings": {
         "foreground": "#7F77FF",
         "fontStyle": ""
+      }
+    },
+    {
+      "scope": ["meta.function.c"],
+      "settings": {
+        "foreground": "#33FF33",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": ["meta.function-call.c"],
+      "settings": {
+        "foreground": "#8F77FF",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": ["meta.parens.c"],
+      "settings": {
+        "foreground": "#7F88FF",
+        "fontStyle": "bold"
       }
     },
     {
@@ -261,10 +298,7 @@
     },
     {
       "name": "JSX Embedded Punctuation",
-      "scope": [
-        "punctuation.section.embedded.begin.jsx",
-        "punctuation.section.embedded.end.jsx"
-      ],
+      "scope": ["punctuation.section.embedded.begin.jsx", "punctuation.section.embedded.end.jsx"],
       "settings": {
         "foreground": "#FF00FF",
         "fontStyle": "bold"
@@ -324,73 +358,6 @@
       "settings": {
         "foreground": "#667",
         "fontStyle": "italic"
-      }
-    },
-    {
-      "scope": "comment.git",
-      "name": "Comment",
-      "settings": {
-        "foreground": "#4d4d4d",
-        "fontStyle": ""
-      }
-    },
-    {
-      "scope": "section.git",
-      "name": "Git Configuration Section",
-      "settings": {
-        "foreground": "#5860eb",
-        "fontStyle": "underline"
-      }
-    },
-    {
-      "scope": "section.name.git",
-      "name": "Git Configuration Section Name",
-      "settings": {
-        "foreground": "#00FF00",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "scope": "meta.declaration.git",
-      "name": "Git Property Declaration",
-      "settings": {
-        "foreground": "#00fff2"
-      }
-    },
-    {
-      "scope": "meta.property.git",
-      "name": "Git Property Name",
-      "settings": {
-        "foreground": "#d0ff00"
-      }
-    },
-    {
-      "scope": "meta.value.git",
-      "name": "Git Property Value",
-      "settings": {
-        "foreground": "#ff00aa"
-      }
-    },
-    {
-      "scope": "punctuation.quote.git",
-      "name": "Git Quote Symbol",
-      "settings": {
-        "foreground": "#33ff00"
-      }
-    },
-    {
-      "scope": "punctuation.equals.git",
-      "name": "Git Equals Symbol",
-      "settings": {
-        "foreground": "#00e5ff",
-        "fontStyle": ""
-      }
-    },
-    {
-      "scope": "whitespace.git",
-      "name": "Git Whitespace",
-      "settings": {
-        "fontStyle": ""
       }
     }
   ]
