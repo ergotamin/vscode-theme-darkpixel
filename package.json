@@ -7,8 +7,8 @@
   "publisher": "ergotamin",
   "author": {
     "name": "Marcel Bobolz",
-    "email": "ergotamin@e-p-s.org",
-    "url": "https://e-p-s.org"
+    "email": "ergotamin.source@gmail.com",
+    "url": "https://ergotamin.github.io"
   },
   "engines": {
     "vscode": "^1.20.0"
@@ -184,7 +184,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ergotamin/darkpixel-theme"
+    "url": "https://github.com/ergotamin/vscode-theme-darkpixel.git"
   },
   "devDependencies": {
     "vscode": "^1.20.0"
