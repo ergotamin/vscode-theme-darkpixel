@@ -4,7 +4,7 @@
 
 <pre>
 <center>
-<h5>Copyright © 2018 <a href="mailto:ergotamin@e-p-s.org">Marcel Bobolz</a></h5>
+<h5>Copyright © 2018 <a href="mailto:ergotamin.source@gmail.com">Marcel Bobolz</a></h5>
 
 <p>
 <em>

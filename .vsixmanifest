@@ -12,9 +12,9 @@
       <Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.20.0" />
       <Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
 
-          <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://e-p-s.org/C-Language.git" />
-          <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://e-p-s.org/C-Language.git" />
-          <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://e-p-s.org/C-Language.git" />
+          <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://ergotamin.github.io" />
+          <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://ergotamin.github.io" />
+          <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://ergotamin.github.io" />
 
           <Property Id="Microsoft.VisualStudio.Services.Branding.Color" Value="#110033" />
           <Property Id="Microsoft.VisualStudio.Services.Branding.Theme" Value="dark" />
