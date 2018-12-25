@@ -10,7 +10,7 @@
 <p>which supports fast & easy source editing without</p>
 <p>any 'eye-distortion' or 'blurification'.</p>
 <pre>
-<img src="https://e-p-s.org/thekeys/assets/under_construction.png" />
+<img src="https://github.com/ergotamin/vscode-theme-darkpixel/raw/master/static/screen.png" />
 <center>[ Screenshot-Placeholder ]</center>
 </pre>
 <br />
@@ -58,8 +58,8 @@ that changed the editor theme completly
 <b><em>
 <p>If you want an older version of this extension back to fulfill</p>
 <p>your destiny, visit the my personal git and browse the commits.</p>
-<a href="https://git.e-p-s.org/ergotamin/script/js/vscode/darkpixel-theme">
-Browse the repository on 'git.e-p-s.org'
+<a href="https://github.com/ergotamin/vscode-theme-darkpixel.git">
+Browse the repository github.com
 </a>
 <br />
 
@@ -67,7 +67,7 @@ Browse the repository on 'git.e-p-s.org'
 
 <small>
 <p>feel free to browse through the other stuff/extensions:</p>
-<p><a href="https://e-p-s.org">To be continued ...</a></p>
+<p><a href="https://github.com/ergotamin">Click...</a></p>
 </small>
 </em>
 </b>
