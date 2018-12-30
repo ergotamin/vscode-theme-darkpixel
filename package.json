@@ -11,7 +11,7 @@
     "url": "https://ergotamin.github.io"
   },
   "engines": {
-    "vscode": "^1.20.0"
+    "vscode": "*"
   },
   "keywords": [
     "dark",
@@ -151,21 +151,21 @@
       {
         "language": "cpp",
         "scopeName": "source.cpp",
-        "path": "./syntaxes/c++.json"
+        "path": "./syntaxes/cpp.json"
       },
       {
         "scopeName": "source.c.platform",
-        "path": "./syntaxes/Platform.tmLanguage"
+        "path": "./syntaxes/platform.json"
       },
       {
         "language": "makefile",
         "scopeName": "source.makefile",
-        "path": "./syntaxes/Makefile.json"
+        "path": "./syntaxes/make.json"
       },
       {
         "language": "shellscript",
         "scopeName": "source.shell",
-        "path": "./syntaxes/unix-shell.json"
+        "path": "./syntaxes/shellscript.json"
       }
     ],
     "themes": [
