@@ -85,5 +85,5 @@
     "titleBar.border": "#5200FFFF",
     "widget.shadow": "#00AAFFCC"
   },
-  "include": "./relScopes.json"
+  "include": "./relative.json"
 }

@@ -229,7 +229,12 @@
     },
     {
       "name": "Functions: class",
-      "scope": ["meta.class", "storage.type.class", "entity.name.class", "support.class"],
+      "scope": [
+        "meta.class",
+        "storage.type.class",
+        "entity.name.class",
+        "support.class"
+      ],
       "settings": {
         "fontStyle": "bold",
         "foreground": "#9400d3"
@@ -476,5 +481,5 @@
       }
     }
   ],
-  "include": "./absScopes.json"
+  "include": "./absolute.json"
 }

@@ -4,7 +4,7 @@
 				"Derived from C.tmLanguage - the original TextMate and Sublime Text syntax definition.",
 				"Additional syntax definitions were added by <ergotamin@e-p-s.org>"
     ],
-    "version": "c-std 1.2.0",
+    "version": "1.2.0",
     "scopeName": "source.c",
     "fileTypes": [
         "c",
