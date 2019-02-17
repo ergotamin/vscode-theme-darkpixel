@@ -1,0 +1,30 @@
+{
+  "comments": {
+    "lineComment": "//",
+    "blockComment": ["/*", "*/"]
+  },
+  "brackets": [
+    // other
+    [":", ";"],
+    ["=", ";"],
+    ["->", ";"]
+  ],
+  // symbols that are auto closed when typing
+  "autoClosingPairs": [
+    // repeat symbols
+    ["(", ")"],
+    ["<", ">"],
+    ["[*", "*]"],
+
+    // comment symbols
+    { "open": "/*", "close": "*/", "notIn": ["string", "comment"] },
+
+    // quote symbols
+    { "open": "\"", "close": "\"", "notIn": ["string", "comment"] },
+    { "open": "'", "close": "'", "notIn": ["string", "comment"] },
+
+    // other
+    { "open": "=", "close": ";", "notIn": ["string", "comment"] },
+    { "open": ":=", "close": ";", "notIn": ["string", "comment"] }
+  ]
+}

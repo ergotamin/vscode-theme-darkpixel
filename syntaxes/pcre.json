@@ -1,0 +1,1073 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "information_for_contributors": [
+    "This file has been converted from https://raw.githubusercontent.com/Alhadis/language-regexp/master/grammars/regexp.cson",
+    "If you want to provide a fix or improvement, please create a pull request against the original repository.",
+    "Once accepted there, we are happy to receive an update request."
+  ],
+  "name": "POSIX Conform Regular Expressions",
+  "scopeName": "source.pcre",
+  "fileTypes": ["pcre", "regexp", "regex", "rex"],
+  "uuid": "7a779c1f-2757-4882-95da-7ec5a3a353a2",
+  "patterns": [
+    {
+      "include": "#language"
+    }
+  ],
+  "repository": {
+    "language": {
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#variable"
+        },
+        {
+          "include": "#anchor"
+        },
+        {
+          "include": "#escape"
+        },
+        {
+          "include": "#wildcard"
+        },
+        {
+          "include": "#alternation"
+        },
+        {
+          "include": "#quantifier"
+        },
+        {
+          "include": "#assertion"
+        },
+        {
+          "include": "#conditional"
+        },
+        {
+          "include": "#group"
+        },
+        {
+          "include": "#class"
+        }
+      ]
+    },
+    "alternation": {
+      "patterns": [
+        {
+          "name": "keyword.operator.logical.or.pcre",
+          "match": "\\|"
+        }
+      ]
+    },
+    "anchor": {
+      "patterns": [
+        {
+          "match": "\\^",
+          "name": "keyword.control.anchor.line-start.pcre"
+        },
+        {
+          "match": "\\$",
+          "name": "keyword.control.anchor.line-end.pcre"
+        },
+        {
+          "match": "\\\\A",
+          "name": "keyword.control.anchor.string-start.pcre"
+        },
+        {
+          "match": "\\\\Z",
+          "name": "keyword.control.anchor.string-end-line.pcre"
+        },
+        {
+          "match": "\\\\z",
+          "name": "keyword.control.anchor.string-end.pcre"
+        },
+        {
+          "match": "\\\\G",
+          "name": "keyword.control.anchor.search-start.pcre"
+        },
+        {
+          "name": "meta.unicode-boundary.pcre",
+          "match": "(?:(\\\\b)|(\\\\B))(\\{)(\\w+)(})",
+          "captures": {
+            "1": {
+              "name": "keyword.control.anchor.word-boundary.pcre"
+            },
+            "2": {
+              "name": "keyword.control.anchor.non-word-boundary.pcre"
+            },
+            "3": {
+              "name": "punctuation.definition.unicode-boundary.bracket.curly.begin.pcre"
+            },
+            "4": {
+              "name": "entity.property.name.pcre"
+            },
+            "5": {
+              "name": "punctuation.definition.unicode-boundary.bracket.curly.end.pcre"
+            }
+          }
+        },
+        {
+          "match": "\\\\b",
+          "name": "keyword.control.anchor.word-boundary.pcre"
+        },
+        {
+          "match": "\\\\B",
+          "name": "keyword.control.anchor.non-word-boundary.pcre"
+        }
+      ]
+    },
+    "assertion": {
+      "patterns": [
+        {
+          "name": "meta.assertion.positive.look-ahead.pcre",
+          "begin": "\\(\\?=",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.assertion.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.assertion.end.pcre"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ]
+        },
+        {
+          "name": "meta.assertion.negative.look-ahead.pcre",
+          "begin": "\\(\\?!",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.assertion.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.assertion.end.pcre"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ]
+        },
+        {
+          "name": "meta.assertion.negative.look-behind.pcre",
+          "begin": "\\(\\?<!",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.assertion.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.assertion.end.pcre"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ]
+        },
+        {
+          "name": "meta.assertion.positive.look-behind.pcre",
+          "begin": "\\(\\?<=",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.assertion.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.assertion.end.pcre"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ]
+        }
+      ]
+    },
+    "class": {
+      "name": "meta.character-class.set.pcre",
+      "begin": "\\[",
+      "end": "\\]",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.character-class.set.begin.pcre"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.character-class.set.end.pcre"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#classInnards"
+        }
+      ]
+    },
+    "classInnards": {
+      "patterns": [
+        {
+          "name": "keyword.operator.logical.not.pcre",
+          "match": "\\G\\^"
+        },
+        {
+          "name": "constant.character.escape.backspace.pcre",
+          "match": "\\\\b"
+        },
+        {
+          "begin": "(&&)(\\[)",
+          "end": "\\]",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.operator.logical.intersect.pcre"
+            },
+            "2": {
+              "name": "punctuation.definition.character-class.set.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.character-class.set.end.pcre"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#classInnards"
+            }
+          ]
+        },
+        {
+          "name": "keyword.operator.logical.intersect.pcre",
+          "match": "&&"
+        },
+        {
+          "name": "punctuation.separator.range.dash.pcre",
+          "match": "(?<!\\G|\\\\[dwshDWSHN])-(?!\\])"
+        },
+        {
+          "name": "constant.language.posix.$2-char.character-class.pcre",
+          "match": "(\\[:)(\\^?)(\\w+)(:\\])",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.character-class.set.begin.pcre"
+            },
+            "2": {
+              "name": "keyword.operator.logical.not.pcre"
+            },
+            "3": {
+              "name": "support.constant.posix-class.pcre"
+            },
+            "4": {
+              "name": "punctuation.definition.character-class.set.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "constant.character.escape.backslash.pcre",
+          "match": "\\\\\\[|\\\\\\]"
+        },
+        {
+          "match": "\\^|\\$|\\(|\\)|\\["
+        },
+        {
+          "include": "#escape"
+        },
+        {
+          "include": "$self"
+        },
+        {
+          "name": "constant.single.character.character-class.pcre",
+          "match": "[^\\]]"
+        }
+      ]
+    },
+    "comment": {
+      "begin": "\\(\\?#",
+      "end": "\\)",
+      "name": "comment.block.pcre",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.backslash.pcre"
+        }
+      ]
+    },
+    "conditional": {
+      "name": "meta.conditional.pcre",
+      "begin": "(\\()(\\?)(?=\\()",
+      "end": "\\)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.section.condition.begin.pcre"
+        },
+        "2": {
+          "name": "keyword.control.flow.pcre"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.condition.end.pcre"
+        }
+      },
+      "patterns": [
+        {
+          "name": "punctuation.separator.condition.if-else.pcre",
+          "match": "\\|"
+        },
+        {
+          "include": "#assertion"
+        },
+        {
+          "name": "meta.condition.function-call.pcre",
+          "begin": "\\G\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.section.condition.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.section.condition.end.pcre"
+            }
+          },
+          "patterns": [
+            {
+              "match": "\\GDEFINE",
+              "name": "storage.type.function.subpattern.pcre"
+            },
+            {
+              "match": "\\Gassert",
+              "name": "keyword.other.assertion.pcre"
+            },
+            {
+              "match": "\\G(?:(<)([^>]+)(>)|(')([^>]+)('))",
+              "captures": {
+                "1": {
+                  "name": "punctuation.definition.group-reference.bracket.angle.begin.pcre"
+                },
+                "2": {
+                  "name": "entity.group.name.pcre"
+                },
+                "3": {
+                  "name": "punctuation.definition.group-reference.bracket.angle.end.pcre"
+                },
+                "4": {
+                  "name": "punctuation.definition.group-reference.quote.single.begin.pcre"
+                },
+                "5": {
+                  "name": "entity.group.name.pcre"
+                },
+                "6": {
+                  "name": "punctuation.definition.group-reference.quote.single.end.pcre"
+                }
+              }
+            },
+            {
+              "match": "\\G(R(&))(\\w+)",
+              "captures": {
+                "1": {
+                  "name": "keyword.other.recursion.specific.pcre"
+                },
+                "2": {
+                  "name": "punctuation.definition.reference.pcre"
+                },
+                "3": {
+                  "name": "entity.group.name.pcre"
+                }
+              }
+            },
+            {
+              "match": "\\GR\\d+",
+              "name": "keyword.other.recursion.specific-group.pcre"
+            },
+            {
+              "match": "\\GR",
+              "name": "keyword.other.recursion.overall.pcre"
+            },
+            {
+              "match": "\\G\\d+",
+              "name": "keyword.other.reference.absolute.pcre"
+            },
+            {
+              "match": "\\G[-+]\\d+",
+              "name": "keyword.other.reference.relative.pcre"
+            },
+            {
+              "match": "\\G\\w+",
+              "name": "entity.group.name.pcre"
+            }
+          ]
+        },
+        {
+          "include": "#language"
+        }
+      ]
+    },
+    "escape": {
+      "patterns": [
+        {
+          "match": "\\\\d",
+          "name": "constant.character.escape.decimal.pcre"
+        },
+        {
+          "match": "\\\\s",
+          "name": "constant.character.escape.whitespace.pcre"
+        },
+        {
+          "match": "\\\\w",
+          "name": "constant.character.escape.word-char.pcre"
+        },
+        {
+          "match": "\\\\n",
+          "name": "constant.character.escape.newline.pcre"
+        },
+        {
+          "match": "\\\\t",
+          "name": "constant.character.escape.tab.pcre"
+        },
+        {
+          "match": "\\\\r",
+          "name": "constant.character.escape.return.pcre"
+        },
+        {
+          "match": "\\\\D",
+          "name": "constant.character.escape.non-decimal.pcre"
+        },
+        {
+          "match": "\\\\S",
+          "name": "constant.character.escape.non-whitespace.pcre"
+        },
+        {
+          "match": "\\\\W",
+          "name": "constant.character.escape.non-word-char.pcre"
+        },
+        {
+          "match": "\\\\a",
+          "name": "constant.character.escape.alarm.pcre"
+        },
+        {
+          "match": "\\\\e",
+          "name": "constant.character.escape.escape-char.pcre"
+        },
+        {
+          "match": "\\\\f",
+          "name": "constant.character.escape.form-feed.pcre"
+        },
+        {
+          "match": "\\\\v",
+          "name": "constant.character.escape.vertical-tab.pcre"
+        },
+        {
+          "match": "\\\\x[0-9A-Fa-f]{2}",
+          "name": "constant.character.escape.numeric.pcre"
+        },
+        {
+          "name": "meta.character-escape.hex.pcre",
+          "match": "(\\\\x)(\\{)([0-9A-Fa-f]{2,})(\\})",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.unicode-escape.hex.pcre"
+            },
+            "2": {
+              "name": "punctuation.definition.unicode-escape.bracket.curly.begin.pcre"
+            },
+            "3": {
+              "name": "constant.numeric.codepoint.hex.pcre"
+            },
+            "4": {
+              "name": "punctuation.definition.unicode-escape.bracket.curly.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.character-escape.octal.pcre",
+          "match": "(\\\\o)(\\{)(\\d{2,})(\\})",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.unicode-escape.octal.pcre"
+            },
+            "2": {
+              "name": "punctuation.definition.unicode-escape.bracket.curly.begin.pcre"
+            },
+            "3": {
+              "name": "constant.numeric.codepoint.octal.pcre"
+            },
+            "4": {
+              "name": "punctuation.definition.unicode-escape.bracket.curly.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.unicode-property.pcre",
+          "match": "(\\\\[Pp])(\\{)(\\^?)([^{}]+)(\\})",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.unicode-property.pcre"
+            },
+            "2": {
+              "name": "punctuation.definition.unicode-escape.bracket.curly.begin.pcre"
+            },
+            "3": {
+              "name": "keyword.operator.logical.not.pcre"
+            },
+            "4": {
+              "name": "entity.property.name.pcre",
+              "patterns": [
+                {
+                  "include": "#propInnards"
+                }
+              ]
+            },
+            "5": {
+              "name": "punctuation.definition.unicode-escape.bracket.curly.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.unicode-property.single-letter.pcre",
+          "match": "(\\\\[Pp])(\\w)",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.unicode-property.pcre"
+            },
+            "2": {
+              "name": "entity.property.name.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.group-reference.pcre",
+          "contentName": "entity.group.name.pcre",
+          "patterns": [
+            {
+              "include": "#groupRefInnards"
+            }
+          ],
+          "begin": "(\\\\[kg])(<)",
+          "end": ">",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.operator.group-reference.pcre"
+            },
+            "2": {
+              "name": "punctuation.definition.group-reference.bracket.angle.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group-reference.bracket.angle.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.group-reference.pcre",
+          "contentName": "entity.group.name.pcre",
+          "patterns": [
+            {
+              "include": "#groupRefInnards"
+            }
+          ],
+          "begin": "(\\\\[kg])(')",
+          "end": "'",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.operator.group-reference.pcre"
+            },
+            "2": {
+              "name": "punctuation.definition.group-reference.quote.single.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group-reference.quote.single.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.group-reference.pcre",
+          "contentName": "entity.group.name.pcre",
+          "begin": "(\\\\[kg])({)",
+          "end": "}",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.operator.group-reference.pcre"
+            },
+            "2": {
+              "name": "punctuation.definition.group-reference.bracket.curly.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group-reference.bracket.curly.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.group-reference.single-letter.pcre",
+          "match": "(\\\\g)(\\d)",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.group-reference.pcre"
+            },
+            "2": {
+              "name": "entity.group.name.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.named-char.pcre",
+          "match": "(\\\\N)(\\{)([^{}]+)(\\})",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.named-char.pcre"
+            },
+            "2": {
+              "name": "punctuation.definition.unicode-escape.bracket.curly.begin.pcre"
+            },
+            "3": {
+              "name": "entity.character.name.pcre",
+              "patterns": [
+                {
+                  "name": "punctuation.separator.colon.pcre",
+                  "match": ":"
+                },
+                {
+                  "name": "punctuation.separator.codepoint.pcre",
+                  "match": "(?<=U)\\+(?=[A-Fa-f0-9])"
+                }
+              ]
+            },
+            "4": {
+              "name": "punctuation.definition.unicode-escape.bracket.curly.end.pcre"
+            }
+          }
+        },
+        {
+          "match": "\\\\(?:\\d{3}|0\\d)",
+          "name": "constant.character.escape.octal.numeric.pcre"
+        },
+        {
+          "match": "\\\\0",
+          "name": "constant.character.escape.null-byte.numeric.pcre"
+        },
+        {
+          "match": "\\\\(\\d{1,2})",
+          "name": "keyword.other.back-reference.$1.pcre"
+        },
+        {
+          "match": "\\\\(?:c|C-)[?-_]",
+          "name": "constant.character.escape.control-char.pcre"
+        },
+        {
+          "match": "\\\\h",
+          "name": "constant.character.escape.hex-digit.pcre"
+        },
+        {
+          "match": "\\\\H",
+          "name": "constant.character.escape.non-hex-digit.pcre"
+        },
+        {
+          "match": "\\\\E",
+          "name": "keyword.control.end-mode.pcre"
+        },
+        {
+          "match": "\\\\Q",
+          "name": "keyword.control.quote-mode.pcre"
+        },
+        {
+          "match": "\\\\F",
+          "name": "keyword.control.foldcase-mode.pcre"
+        },
+        {
+          "match": "\\\\L",
+          "name": "keyword.control.lowercase-mode.pcre"
+        },
+        {
+          "match": "\\\\U",
+          "name": "keyword.control.titlecase-mode.pcre"
+        },
+        {
+          "match": "\\\\K",
+          "name": "keyword.control.keep-out.pcre"
+        },
+        {
+          "match": "\\\\l",
+          "name": "constant.character.escape.lowercase-next.pcre"
+        },
+        {
+          "match": "\\\\u",
+          "name": "constant.character.escape.titlecase-next.pcre"
+        },
+        {
+          "match": "\\\\N",
+          "name": "constant.character.escape.non-newline.pcre"
+        },
+        {
+          "match": "\\\\X",
+          "name": "constant.character.escape.extended-grapheme.pcre"
+        },
+        {
+          "match": "\\\\R",
+          "name": "constnat.character.escape.linebreak-grapheme.pcre"
+        },
+        {
+          "match": "\\\\V",
+          "name": "constant.character.escape.non-vertical-whitespace.pcre"
+        },
+        {
+          "match": "\\\\M-\\\\C-[?-_]",
+          "name": "constant.character.escape.meta-control.pcre"
+        },
+        {
+          "match": "\\\\M-.",
+          "name": "constant.character.escape.meta-char.pcre"
+        },
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.misc.pcre"
+        }
+      ]
+    },
+    "group": {
+      "patterns": [
+        {
+          "name": "meta.callout.pcre",
+          "match": "(\\()(\\?C\\d*)(\\))",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.group.begin.pcre"
+            },
+            "2": {
+              "name": "keyword.control.callout.pcre"
+            },
+            "3": {
+              "name": "punctuation.definition.group.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.group.named.pcre",
+          "begin": "\\(\\?(?=P?[<'])",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.end.pcre"
+            }
+          },
+          "patterns": [
+            {
+              "contentName": "entity.group.name.pcre",
+              "begin": "\\G(P?)(<)",
+              "end": ">",
+              "beginCaptures": {
+                "1": {
+                  "name": "storage.type.function.named-group.pcre"
+                },
+                "2": {
+                  "name": "punctuation.definition.named-group.bracket.angle.begin.pcre"
+                }
+              },
+              "endCaptures": {
+                "0": {
+                  "name": "punctuation.definition.named-group.bracket.angle.end.pcre"
+                }
+              }
+            },
+            {
+              "contentName": "entity.group.name.pcre",
+              "begin": "\\G'",
+              "end": "'",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.named-group.quote.single.begin.pcre"
+                }
+              },
+              "endCaptures": {
+                "0": {
+                  "name": "punctuation.definition.named-group.quote.single.end.pcre"
+                }
+              }
+            },
+            {
+              "include": "#language"
+            }
+          ]
+        },
+        {
+          "name": "meta.group.non-capturing.pcre",
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ],
+          "begin": "(\\(\\?)([-A-Za-z^]*)(:)",
+          "end": "\\)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.group.begin.pcre"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "#scopedModifiers"
+                }
+              ]
+            },
+            "3": {
+              "name": "punctuation.separator.colon.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.group.atomic.pcre",
+          "begin": "\\(\\?>",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.end.pcre"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ]
+        },
+        {
+          "name": "meta.group.scoped-modifiers.pcre",
+          "match": "(\\(\\?)([-A-Za-z^]*)(\\))",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.group.begin.pcre"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "#scopedModifiers"
+                }
+              ]
+            },
+            "3": {
+              "name": "punctuation.definition.group.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.control-verb.pcre",
+          "match": "(\\(\\*)(\\w*)(?:([:=])([^\\s()]*))?(\\))",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.group.begin.pcre"
+            },
+            "2": {
+              "name": "keyword.control.verb.pcre"
+            },
+            "3": {
+              "name": "punctuation.separator.key-value.pcre"
+            },
+            "4": {
+              "name": "variable.parameter.control-verb.pcre"
+            },
+            "5": {
+              "name": "punctuation.definition.group.begin.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.group-reference.named.pcre",
+          "match": "(\\()(\\?(?:&|P[>=]))(\\w+)(\\))",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.group.begin.pcre"
+            },
+            "2": {
+              "name": "keyword.other.back-reference.pcre"
+            },
+            "3": {
+              "name": "entity.group.name.pcre"
+            },
+            "4": {
+              "name": "punctuation.definition.group.begin.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.group-reference.relative.pcre",
+          "match": "(\\()(\\?[-+]\\d+)(\\))",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.group.begin.pcre"
+            },
+            "2": {
+              "name": "keyword.other.back-reference.pcre"
+            },
+            "3": {
+              "name": "punctuation.definition.group.end.pcre"
+            }
+          }
+        },
+        {
+          "name": "meta.group.pcre",
+          "begin": "\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.begin.pcre"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.end.pcre"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ]
+        }
+      ]
+    },
+    "groupRefInnards": {
+      "patterns": [
+        {
+          "match": "\\-(?=\\d)",
+          "name": "keyword.operator.arithmetic.minus.pcre"
+        },
+        {
+          "match": "\\+(?=\\d)",
+          "name": "keyword.operator.arithmetic.plus.pcre"
+        }
+      ]
+    },
+    "propInnards": {
+      "patterns": [
+        {
+          "match": "=",
+          "name": "keyword.operator.comparison.pcre"
+        },
+        {
+          "match": "True|False",
+          "name": "constant.language.boolean.${0:/downcase}.pcre"
+        }
+      ]
+    },
+    "quantifier": {
+      "patterns": [
+        {
+          "name": "keyword.operator.quantifier.pcre",
+          "match": "[*+?]"
+        },
+        {
+          "name": "keyword.operator.quantifier.specific.pcre",
+          "match": "(\\{)(?:(\\d+)(,?)(\\d*)|(,)(\\d+))(\\})",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.quantifier.bracket.curly.begin.pcre"
+            },
+            "2": {
+              "name": "keyword.operator.quantifier.min.pcre"
+            },
+            "3": {
+              "name": "punctuation.delimiter.comma.pcre"
+            },
+            "4": {
+              "name": "keyword.operator.quantifier.max.pcre"
+            },
+            "5": {
+              "name": "punctuation.delimiter.comma.pcre"
+            },
+            "6": {
+              "name": "keyword.operator.quantifier.max.pcre"
+            },
+            "7": {
+              "name": "punctuation.definition.quantifier.bracket.curly.end.pcre"
+            }
+          }
+        }
+      ]
+    },
+    "scopedModifiers": {
+      "patterns": [
+        {
+          "match": "(?<=\\?)\\^",
+          "name": "keyword.operator.modifier.reset.pcre"
+        },
+        {
+          "match": "-",
+          "name": "keyword.operator.modifier.negate.pcre"
+        },
+        {
+          "match": "[A-Za-z]",
+          "name": "storage.modifier.flag.$0.pcre"
+        }
+      ]
+    },
+    "variable": {
+      "patterns": [
+        {
+          "name": "variable.other.pcre",
+          "match": "(?<![^\\\\]\\\\|^\\\\)\\$(?!\\d|-)[-\\w]+",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.pcre"
+            }
+          }
+        },
+        {
+          "name": "variable.other.bracket.pcre",
+          "match": "(?<![^\\\\]\\\\|^\\\\)(\\$\\{)\\s*(?!\\d|-)[-\\w]+\\s*(\\})",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.begin.tmcg"
+            },
+            "2": {
+              "name": "punctuation.definition.variable.end.tmcg"
+            }
+          }
+        }
+      ]
+    },
+    "wildcard": {
+      "patterns": [
+        {
+          "name": "constant.character.wildcard.dot.match.any.pcre",
+          "match": "\\."
+        }
+      ]
+    }
+  }
+}

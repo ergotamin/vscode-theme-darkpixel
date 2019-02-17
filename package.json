@@ -65,7 +65,24 @@
           "Cpp",
           "cpp"
         ],
+        "firstLine": "^\\s*#?//\\s*(\\![cC]\\+{2})",
         "configuration": "./lang/c-language-configuration.json"
+      },
+      {
+        "id": "unicc",
+        "extensions": [
+          "par",
+          "grammar",
+          "ebnf",
+          "bnf"
+        ],
+        "aliases": [
+          "Grammar",
+          "EBNF",
+          "BNF",
+          "Parser"
+        ],
+        "configuration": "./lang/unicc-language-configuration.json"
       },
       {
         "id": "makefile",
@@ -135,6 +152,35 @@
         ],
         "firstLine": "^#\\s*!.*\\b(awk|gawk).*|^#\\s*-\\*-[^*]*mode:\\s*awk-script[^*]*-\\*-",
         "configuration": "./lang/awk-language-configuration.json"
+      },
+      {
+        "id": "quex",
+        "aliases": [
+          "quex",
+          "Quex",
+          "qx"
+        ],
+        "extensions": [
+          ".qx",
+          ".quex"
+        ],
+        "configuration": "./lang/quex-language-configuration.json"
+      },
+      {
+        "id": "pcre",
+        "aliases": [
+          "pcre",
+          "regexp",
+          "regex",
+          "rex"
+        ],
+        "extensions": [
+          ".pcre",
+          ".regexp",
+          "regex",
+          "rex"
+        ],
+        "configuration": "./lang/pcre-language-configuration.json"
       }
     ],
     "grammars": [
@@ -158,6 +204,11 @@
         "path": "./syntaxes/platform.json"
       },
       {
+        "language": "unicc",
+        "scopeName": "source.par",
+        "path": "./syntaxes/unicc.json"
+      },
+      {
         "language": "makefile",
         "scopeName": "source.makefile",
         "path": "./syntaxes/make.json"
@@ -166,6 +217,16 @@
         "language": "shellscript",
         "scopeName": "source.shell",
         "path": "./syntaxes/shellscript.json"
+      },
+      {
+        "language": "quex",
+        "scopeName": "source.qx",
+        "path": "./syntaxes/quex.json"
+      },
+      {
+        "language": "pcre",
+        "scopeName": "source.pcre",
+        "path": "./syntaxes/pcre.json"
       }
     ],
     "themes": [

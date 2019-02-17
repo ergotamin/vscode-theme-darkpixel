@@ -48,7 +48,7 @@
                 },
                 {
                     "include": "#parens"
-                } 
+                }
             ]
         },
         "special_block": {
@@ -982,6 +982,20 @@
                     "name": "comment.block.c",
                     "patterns": [
                         {
+                            "begin": "\\s*[!](re2c|stags|mtags)",
+                            "captures": {
+                                "1": {
+                                    "name": "keyword.operator.c"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "include": "source.cs"
+                                }
+                            ],
+                            "end": "(?:(?=\\*/))"
+                        },
+                        {
                             "include": "#comment-innards"
 												},
 												{
@@ -990,10 +1004,10 @@
 																		"1": {
 																				"name": "comment.block.jdoc.c"
 																				}
-																		}
+										 								}
 												},
 												{
-																		"match": "\\s*([A-Z][a-z]++:)(\\s*\\S*\\s*)",
+																		"match": "\\s*([A-Z][a-z]+:)(\\s*\\S*\\s*)",
 																		"captures": {
 																		"1": {
 																				"name": "comment.block.dochead.c"
@@ -1033,7 +1047,7 @@
 																		}
                                                 },
                                                 {
-                                                    "match": "\\s*([!]\\S*)\\s*",
+                                                    "match": "\\s+([!][^\\* \\t\\n]*)\\s*",
                                                     "captures": {
                                                     "1": {
                                                             "name": "comment.block.token.c"

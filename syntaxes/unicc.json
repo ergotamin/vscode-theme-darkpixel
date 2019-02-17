@@ -1,0 +1,221 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "UniCC Grammar",
+  "scopeName": "source.par",
+  "fileTypes": ["par", "grammar", "ebnf", "bnf"],
+  "uuid": "ceb2fc78-71a7-49f2-a772-4a4e0439330c",
+  "patterns": [
+    {
+      "include": "#language"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        {
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.comment.par"
+            },
+            "2": {
+              "name": "comment.line.par"
+            }
+          },
+          "match": "(//)(.*)"
+        },
+        {
+          "begin": "(/\\*)(.*)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.comment.par"
+            },
+            "2": {
+              "name": "comment.block.par"
+            }
+          },
+          "contentName": "comment.block.par",
+          "end": "(.*)(\\*/)",
+          "endCaptures": {
+            "1": {
+              "name": "comment.block.par"
+            },
+            "2": {
+              "name": "punctuation.definition.comment.par"
+            }
+          }
+        }
+      ]
+    },
+    "symbols": {
+      "patterns": [
+        {
+          "match": "(\\x{003b})",
+          "name": "punctuation.terminator.statement.qx"
+        },
+        {
+          "name": "keyword.operator.par",
+          "match": "(\\x{002d}\\x{003e})"
+        },
+        {
+          "name": "keyword.operator.logical.par",
+          "match": "(\\||\\*|\\+|\\?|\\!)"
+        },
+        {
+          "name": "keyword.operator.logical.par",
+          "match": "(\\||\\*|\\+|\\?)"
+        },
+        {
+          "name": "keyword.operator.assignment.par",
+          "match": "(\\:|\\:\\=|\\=)"
+        },
+        {
+          "name": "constant.numeric.par",
+          "match": "(0[bB][0-1]+|0[oO][0-7]+|0[xX][a-fA-F0-9]+|[1-9]\\d*|0)"
+        }
+      ]
+    },
+    "identifier": {
+      "patterns": [
+        {
+          "name": "variable.other.property.par",
+          "match": "(\\@[_a-zA-Z][_a-zA-Z0-9]*|[_a-zA-Z][_a-zA-Z0-9]*\\$)"
+        },
+        {
+          "name": "variable.language.this.par",
+          "match": "(this|self)"
+        },
+        {
+          "name": "entity.name.function.par",
+          "match": "([_a-zA-Z][_a-zA-Z0-9]*)"
+        }
+      ]
+    },
+    "expression": {
+      "patterns": [
+        {
+          "begin": "(\\x{0022})",
+          "beginCaptures": {
+            "1": {
+              "name": "string.quoted.double.par"
+            }
+          },
+          "end": "(\\x{0022})",
+          "endCaptures": {
+            "1": {
+              "name": "string.quoted.double.par"
+            }
+          },
+          "contentName": "string.tag.par"
+        },
+        {
+          "begin": "(\\x{0027})",
+          "beginCaptures": {
+            "1": {
+              "name": "string.quoted.single.par"
+            }
+          },
+          "end": "(\\x{0027})",
+          "endCaptures": {
+            "1": {
+              "name": "string.quoted.single.par"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.pcre"
+            }
+          ]
+        },
+        {
+          "begin": "(\\<)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.separator.key-value.par"
+            }
+          },
+          "contentName": "storage.type.par",
+          "end": "(\\>)",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.separator.key-value.par"
+            }
+          }
+        },
+        {
+          "begin": "(\\[\\*)",
+          "beginCaptures": {
+            "1": {
+              "name": "meta.brace.curly.begin.par"
+            }
+          },
+          "end": "(\\*\\])",
+          "endCaptures": {
+            "1": {
+              "name": "meta.brace.curly.end.par"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ]
+        },
+        {
+          "begin": "(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "meta.brace.curly.begin.par"
+            }
+          },
+          "end": "(\\))",
+          "endCaptures": {
+            "1": {
+              "name": "meta.brace.curly.end.par"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ]
+        }
+      ]
+    },
+    "directive": {
+      "name": "meta.preprocessor.par",
+      "patterns": [
+        {
+          "name": "keyword.control.par",
+          "match": "(\\x{0023}[_a-zA-Z]+)"
+        },
+        {
+          "name": "variable.language.this.par",
+          "match": "(\\x{0023}\\![_a-zA-Z]+)"
+        },
+        {
+          "name": "support.type.sys-types.par",
+          "match": "(\\s+[_a-zA-Z]+)"
+        }
+      ]
+    },
+    "language": {
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#symbols"
+        },
+        {
+          "include": "#identifier"
+        },
+        {
+          "include": "#expression"
+        },
+        {
+          "include": "#directive"
+        }
+      ]
+    }
+  }
+}
