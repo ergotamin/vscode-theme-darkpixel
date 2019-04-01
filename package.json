@@ -181,6 +181,18 @@
           "rex"
         ],
         "configuration": "./lang/pcre-language-configuration.json"
+      },
+      {
+        "id": "ragel",
+        "aliases": [
+          "Ragel",
+          "ragel"
+        ],
+        "extensions": [
+          ".rl",
+          ".ragel"
+        ],
+        "configuration": "./lang/ragel-language-configuration.json"
       }
     ],
     "grammars": [
@@ -227,6 +239,11 @@
         "language": "pcre",
         "scopeName": "source.pcre",
         "path": "./syntaxes/pcre.json"
+      },
+      {
+        "language": "ragel",
+        "scopeName": "source.c.ragel",
+        "path": "./syntaxes/ragel.json"
       }
     ],
     "themes": [
@@ -240,6 +257,10 @@
       {
         "language": "json",
         "path": "./snippets/JSON.json"
+      },
+      {
+        "language": "ragel",
+        "path": "./snippets/ragel.json"
       }
     ]
   },

@@ -982,18 +982,44 @@
                     "name": "comment.block.c",
                     "patterns": [
                         {
-                            "begin": "\\s*[!](re2c|stags|mtags)",
+                            "begin": "[!](\\w*:?re2c:?\\w*)",
                             "captures": {
                                 "1": {
                                     "name": "keyword.operator.c"
                                 }
                             },
+                            "contentName": "source.pcre",
                             "patterns": [
                                 {
-                                    "include": "source.cs"
+                                    "include": "source.pcre"
+                                },
+                                {
+                                    "begin": "[^\\x{0022}](\\{)",
+                                    "captures": {
+                                        "1": {
+                                            "name": "meta.brace.curly.begin.c"
+                                        }
+                                    },
+                                    "patterns":
+                                    [
+                                        {
+                                            "include": "source.cpp"
+                                        }
+                                    ],
+                                    "end": "[^\\x{0022}](\\})",
+                                    "endCaptures": {
+                                        "1": {
+                                            "name": "meta.brace.curly.end.c"
+                                        }
+                                    }
                                 }
                             ],
-                            "end": "(?:(?=\\*/))"
+                            "end": "\\s*(?=(\\*/))",
+                            "endCaptures": {
+                                "1": {
+                                    "name": "punctuation.definition.comment.block.c"
+                                }
+                            }
                         },
                         {
                             "include": "#comment-innards"

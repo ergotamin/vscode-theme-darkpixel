@@ -1,0 +1,142 @@
+{
+    "ragel": {
+        "prefix": "ragel",
+        "body": [
+            "%%{",
+            "\t$1",
+            "}%%"
+        ],
+        "description": "Ragel block"
+    },
+    
+    "machine": {
+        "prefix": "machine",
+        "body": ["machine ${1:name};"],
+        "description": "Specify machine name"
+    },
+    
+    "alphtype": {
+        "prefix": "alphtype",
+        "body": ["alphtype ${1:char};"],
+        "description": "Alphabet data type"
+    },
+
+    "getkey": {
+        "prefix": "getkey",
+        "body": ["getkey ${1:(*p)};"],
+        "description": "Specify how to access current element (e.g. character)"
+    },
+
+    "access": {
+        "prefix": "access",
+        "body": ["access ${1:state->};"],
+        "description": "Specify how to access Ragel state variables"
+    },
+    
+    "variable": {
+        "prefix": "variable",
+        "body": ["variable ${1:p} ${2:state->p};"],
+        "description": "Specify how to access Ragel variable"
+    },
+    
+    "prepush": {
+        "prefix": "prepush",
+        "body": [
+            "prepush {",
+            "\t${2:/* stack growing code */}",
+            "}"
+        ],
+        "description": "Custom stack growing handler"
+    },
+    
+    "postpop": {
+        "prefix": "postpop",
+        "body": [
+            "postpop {",
+            "\t${2:/* stack shrinking code */}",
+            "}"
+        ],
+        "description": "Custom stack shrinking handler"
+    },
+    
+    "write_data": {
+        "prefix": "data",
+        "body": ["write data ${1:noerror nofinal noprefix}"],
+        "description": "Write data statement"
+    },
+    
+    "write_start": {
+        "prefix": "start",
+        "body": ["%%{ write start; }%%"]
+    },
+    
+    "write_first_final": {
+        "prefix": "first_final",
+        "body": ["%%{ write first_final; }%%"]
+    },
+    
+    "write_error": {
+        "prefix": "error",
+        "body": ["%%{ write error; }%%"]
+    },
+    
+    "write_init": {
+        "prefix": "init",
+        "body": ["${1:%%}write init ${1:nocs};"]
+    },
+    
+    "write_exec": {
+        "prefix": "exec",
+        "body": ["${1:%%}write exec ${1:noend};"]
+    },
+    
+    "write_exports": {
+        "prefix": "exports",
+        "body": ["${1:%%}write exports;"]
+    },
+
+    "action": {
+        "prefix": "action",
+        "body": [
+            "action ${1:name} {",
+            "\t${2:/* action code */}",
+            "}"
+        ],
+        "description": "Named action"
+    },
+    
+    "scanner": {
+        "prefix": "scanner",
+        "body": [
+            "${1:name} := |*",
+            "\t${2:pattern} => ${3:action};",
+            "\t$4",
+            "*|;"
+        ],
+        "description": "Scanner machine definition"
+    },
+    
+    "when": {
+        "prefix": "when",
+        "body": ["when ${1:fc}"],
+        "description": "Semantic condition"
+    },
+    
+    "machine_def": {
+        "prefix": "def",
+        "body": "${1:name} ${2::}= ${3:expression};",
+        "description": "Machine definition or instantiation"
+    },
+    
+    "include": {
+        "prefix": "include",
+        "body": "include ${1:FsmName} \"${2:inputfile.rl}\";",
+        "description": "Include Ragel code"
+    },
+    
+    "import": {
+        "prefix": "import",
+        "body": "import \"inputfile.h\"",
+        "description": "Import Ragel definitions"
+    }
+}
